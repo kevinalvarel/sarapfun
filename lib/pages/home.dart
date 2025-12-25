@@ -1,0 +1,103 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:flutter_vector_icons/flutter_vector_icons.dart';
+
+class HomePage extends StatelessWidget {
+  const HomePage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.white,
+      appBar: appBar(),
+      body: Column(children: [_searchField()]),
+    );
+  }
+
+  Container _searchField() {
+    return Container(
+      margin: EdgeInsets.only(top: 40, left: 20, right: 20),
+      decoration: BoxDecoration(
+        boxShadow: [
+          BoxShadow(
+            color: Color.fromRGBO(29, 22, 23, 0.11),
+            blurRadius: 40,
+            spreadRadius: 0.0,
+          ),
+        ],
+      ),
+      child: TextField(
+        decoration: InputDecoration(
+          hintText: "Nasi Goreng",
+          hintStyle: TextStyle(color: Colors.grey, fontSize: 14),
+          filled: true,
+          fillColor: Colors.white,
+          contentPadding: EdgeInsets.all(15),
+          prefixIcon: Padding(
+            padding: const EdgeInsets.all(12),
+            child: Icon(AntDesign.search1),
+          ),
+          suffixIcon: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Icon(AntDesign.filter),
+          ),
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(15),
+            borderSide: BorderSide.none,
+          ),
+        ),
+      ),
+    );
+  }
+
+  AppBar appBar() {
+    return AppBar(
+      title: Text(
+        "Sarapfun",
+        style: TextStyle(
+          color: Colors.black,
+          fontSize: 18,
+          fontWeight: FontWeight.bold,
+        ),
+      ),
+      backgroundColor: Colors.white,
+      centerTitle: true,
+      leading: GestureDetector(
+        onTap: () {},
+        child: Container(
+          alignment: Alignment.center,
+          margin: EdgeInsets.all(10),
+          decoration: BoxDecoration(
+            color: Colors.pink[30],
+            borderRadius: BorderRadius.circular(10),
+          ),
+          child: SvgPicture.asset(
+            'assets/icons/left-arrow.svg',
+            width: 25,
+            height: 25,
+          ),
+        ),
+      ),
+
+      actions: <Widget>[
+        GestureDetector(
+          onTap: () {},
+          child: Container(
+            alignment: Alignment.center,
+            width: 37,
+            margin: EdgeInsets.all(10),
+            decoration: BoxDecoration(
+              color: Colors.pink[30],
+              borderRadius: BorderRadius.circular(10),
+            ),
+            child: SvgPicture.asset(
+              'assets/icons/menu.svg',
+              width: 25,
+              height: 25,
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+}
